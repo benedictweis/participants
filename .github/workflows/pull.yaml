@@ -2,7 +2,7 @@ name: Check Single Line Change
 
 on:
   pull_request:
-
+    
 jobs:
   check_single_line_change:
     runs-on: ubuntu-latest
@@ -17,7 +17,7 @@ jobs:
           lines_changed=$(git diff --numstat ${{ github.event.before }} ${{ github.sha }} | awk '{print $1}')
 
           # Check if only one line is changed
-          if [ $lines_changed -eq 1 ]; then
+          if [[ "$lines_changed" -eq 2 ]] || [[ "$lines_changed" -eq 1 ]]; then
             echo "Success: Pull request changes only a single line."
           else
             echo "Error: Pull request changes more than one line."

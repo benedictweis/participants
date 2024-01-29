@@ -2,8 +2,6 @@ name: Check Single Line Change
 
 on:
   pull_request:
-    paths:
-      - '**/*'
 
 jobs:
   check_single_line_change:
